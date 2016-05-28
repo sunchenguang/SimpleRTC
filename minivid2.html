@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css"/>
     <script src="js/modernizr.custom.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/normalize.css"/>-->
     <style>
         #vid-box {
             display: inline-block;
@@ -39,7 +39,7 @@
     <form name="loginForm" id="login" action="#" onsubmit="return errWrap(login,this);">
         <span class="input input--nao">
             <input class="input__field input__field--nao" type="text" name="username" id="username"
-                   placeholder="Enter A Username"/>
+                   placeholder="请输入用户名"/>
                 <label class="input__label input__label--nao" for="username">
                     <span class="input__label-content input__label-content--nao">                                          
                     </span>
@@ -67,7 +67,7 @@
     <form name="callForm" id="call" action="#" onsubmit="return errWrap(makeCall,this);">
         <span class="input input--nao">
             <input class="input__field input__field--nao" type="text" name="number" id="call"
-                   placeholder="Enter User To Call!"/>
+                   placeholder="请输入要视频的用户名"/>
 					<label class="input__label input__label--nao" for="number">
 						<span class="input__label-content input__label-content--nao">                                          
                         </span>
@@ -84,16 +84,16 @@
     </form>
 
     <div id="inCall" class="ptext">
-        <button id="end" onclick="end()">End</button>
-        <button id="mute" onclick="mute()">Mute</button>
-        <button id="pause" onclick="pause()">Pause</button>
+        <button id="end" onclick="end()">结束</button>
+        <button id="mute" onclick="mute()">静音</button>
+        <button id="pause" onclick="pause()">暂停</button>
     </div>
 
     <div id="logs" class="ptext"></div>
 
-    <p class="ptext"><b>To Use:</b></p>
-    <p class="ptext">Type a username and click Log in. If input turns green you are ready to receive/place a call.</p>
-    <p class="ptext">In a separate browser window, log in with a different username, and place a call to the first.</p>
+    <p class="ptext"><b>使用方法:</b></p>
+    <p class="ptext">输入你的用户名然后点击后面的登录按钮，如果输入框区域变成绿色，那么你已经准备好接收或拨打电话了。 </p>
+    <p class="ptext">在另外一个单独的浏览器窗口中，使用不同的用户名登陆，并拨打第一个用户。</p>
 
     <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
     <!-- WebRTC Peer Connections -->
