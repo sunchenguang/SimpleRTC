@@ -203,7 +203,7 @@
             embed.width = w;
             embed.height = h;
             embed.setAttribute("frameborder", 0);
-            embed_demo.innerHTML = "<a href='embed_demo.html?stream=" + streamName + "&width=" + w + "&height=" + h + "'>Embed Demo</a>";
+            embed_demo.innerHTML = "<a target='_blank' href='embed_demo.html?stream=" + streamName + "&width=" + w + "&height=" + h + "'>Embed Demo</a>";
             embed_code.innerHTML = 'Embed Code: ';
             embed_code.appendChild(document.createTextNode(embed.outerHTML));
         }
