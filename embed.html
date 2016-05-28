@@ -31,7 +31,7 @@
 	<div id="stream-info"><img src="img/person_dark.png"/><span id="here-now">0</span></div>
 </body>
 
-<script src="https://cdn.pubnub.com/pubnub-3.7.14.min.js"></script>
+<script src="https://cdn.pubnub.com/pubnub-3.7.10.js"></script>
 <script src="https://cdn.pubnub.com/webrtc/webrtc.js"></script>
 <script src="https://cdn.pubnub.com/webrtc/rtc-controller.js"></script>
 <script>	
@@ -55,6 +55,7 @@ var phone = window.phone = PHONE({
     publish_key   : 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
     subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
     oneway        : true,
+	ssl: (('https:' == document.location.protocol))
 });
 var ctrl = window.ctrl = CONTROLLER(phone);
 ctrl.ready(function(){
