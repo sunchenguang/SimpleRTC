@@ -117,34 +117,34 @@
                 number: form.username.value || "Anonymous", // listen on username line else Anonymous
                 publish_key: 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
                 subscribe_key: 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
-                ssl: (('https:' == document.location.protocol) ? true : false)
+                ssl: ('https:' == document.location.protocol)
             });
             var ctrl = window.ctrl = CONTROLLER(phone);
             ctrl.ready(function () {
                 form.username.style.background = "#55ff5b";
                 form.login_submit.hidden = "true";
                 ctrl.addLocalStream(vid_thumb);
-                addLog("Logged in as " + form.username.value);
+                addLog("当前登录用户为： " + form.username.value);
             });
             ctrl.receive(function (session) {
                 session.connected(function (session) {
                     video_out.appendChild(session.video);
-                    addLog(session.number + " has joined.");
+                    addLog(session.number + " 已加入视频聊天。");
                     vidCount++;
                 });
                 session.ended(function (session) {
                     ctrl.getVideoElement(session.number).remove();
-                    addLog(session.number + " has left.");
+                    addLog(session.number + " 已经退出视频聊天。");
                     vidCount--;
                 });
             });
             ctrl.videoToggled(function (session, isEnabled) {
                 ctrl.getVideoElement(session.number).toggle(isEnabled);
-                addLog(session.number + ": video enabled - " + isEnabled);
+                addLog(session.number + ": " + (isEnabled ? "视频连接已建立！" : "视频断开连接！"));
             });
             ctrl.audioToggled(function (session, isEnabled) {
                 ctrl.getVideoElement(session.number).css("opacity", isEnabled ? 1 : 0.75);
-                addLog(session.number + ": audio enabled - " + isEnabled);
+                addLog(session.number + ": " + (isEnabled ? "音频连接已建立！" : "音频断开连接！"));
             });
             return false;
         }
@@ -162,8 +162,8 @@
 
         function mute() {
             var audio = ctrl.toggleAudio();
-            if (!audio) $("#mute").html("Unmute");
-            else $("#mute").html("Mute");
+            if (!audio) $("#mute").html("取消静音");
+            else $("#mute").html("静音");
         }
 
         function end() {
@@ -172,8 +172,8 @@
 
         function pause() {
             var video = ctrl.toggleVideo();
-            if (!video) $('#pause').html('Unpause');
-            else $('#pause').html('Pause');
+            if (!video) $('#pause').html('取消暂停');
+            else $('#pause').html('暂停');
         }
 
         function getVideo(number) {
