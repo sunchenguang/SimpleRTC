@@ -32,7 +32,10 @@ genEmbed(width,height);
 
 
 function genEmbed(w,h){
-	var url = "http://kevingleason.me/SimpleRTC/embed.html?stream=" + stream;
+//	var url = "http://kevingleason.me/SimpleRTC/embed.html?stream=" + stream;
+	var url_prefix = window.location.origin.indexOf('localhost') > -1 ? window.location.origin : window.location.origin +'/SimpleRTC';
+	var url = url_prefix + "/embed.html?stream=" + stream;
+
 	var embed    = document.createElement('iframe');
 	embed.src    = url;
 	embed.width  = w;
