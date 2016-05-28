@@ -107,7 +107,7 @@ transform: scale(-1, 1); filter: FlipH;";
 			videoTracks[i].enabled = !videoTracks[i].enabled;
 			video = videoTracks[i].enabled;
 		}
-		phone.send({type: "ctrl-userVideo", data: {user : phone.number(), video:video}); // Stream false if paused
+		phone.send({type: "ctrl-userVideo", data: {user : phone.number(), video:video}}); // Stream false if paused
 		return video;
 	};
 	

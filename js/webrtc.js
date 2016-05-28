@@ -47,9 +47,10 @@ var PHONE = window.PHONE = function(config) {
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     navigator.getUserMedia = 
         navigator.getUserMedia       ||
+        // navigator.mediaDevices.getUserMedia ||
         navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia    ||
-        navigator.msGetUserMedia;
+        navigator.msGetUserMedia     ;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     // STUN Server List Configuration (public STUN list)
