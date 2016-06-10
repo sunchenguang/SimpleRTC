@@ -64,11 +64,11 @@
     -->
 
 
-    <form name="callForm" id="call" action="#" onsubmit="return errWrap(makeCall,this);">
+    <form name="callForm" id="call_form" action="#" onsubmit="return errWrap(makeCall,this);">
         <span class="input input--nao">
             <input class="input__field input__field--nao" type="text" name="number" id="call"
                    placeholder="请输入要视频的用户名"/>
-					<label class="input__label input__label--nao" for="number">
+					<label class="input__label input__label--nao">
 						<span class="input__label-content input__label-content--nao">                                          
                         </span>
 					</label>
@@ -103,7 +103,7 @@
     <script src="https://cdn.pubnub.com/pubnub-3.7.10.js"></script>
 
 
-    <script src="js/webrtc.js"></script>
+    <script src="js/webrtc_old.js"></script>
     <script src="js/rtc-controller.js"></script>
 
     <script type="text/javascript">
@@ -112,6 +112,7 @@
         var vid_thumb = document.getElementById("vid-thumb");
         var vidCount = 0;
 
+
         function login(form) {
             var phone = window.phone = PHONE({
                 number: form.username.value || "Anonymous", // listen on username line else Anonymous
@@ -119,6 +120,18 @@
                 subscribe_key: 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
                 ssl: (('https:' == document.location.protocol))
             });
+            phone.unable(function (details) {
+                alert('phone unable to init ---' + details);
+                console.log("Phone is unable to initialize.");
+                console.log("Try reloading, or give up.");
+            });
+//            phone.history({
+//                number: form.username.value,
+//                history: function (call_history) {
+//                    console.log('call history ----' + call_history);
+//                }
+//            });
+
             var ctrl = window.ctrl = CONTROLLER(phone);
             ctrl.ready(function () {
                 form.username.style.background = "#55ff5b";
