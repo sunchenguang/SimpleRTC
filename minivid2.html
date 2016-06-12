@@ -112,12 +112,15 @@
         var vid_thumb = document.getElementById("vid-thumb");
         var vidCount = 0;
 
+        var publish_key = "pub-c-82155d74-e444-441f-bd2d-e00c7d4f98cb";
+        var subscribe_key = "sub-c-23aea65c-23d9-11e6-9a17-0619f8945a4f";
+
 
         function login(form) {
             var phone = window.phone = PHONE({
                 number: form.username.value || "Anonymous", // listen on username line else Anonymous
-                publish_key: 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
-                subscribe_key: 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
+                publish_key: publish_key, // Your Pub Key
+                subscribe_key: subscribe_key, // Your Sub Key
                 ssl: (('https:' == document.location.protocol))
             });
             phone.unable(function (details) {
@@ -168,7 +171,7 @@
             if (phone.number() == num) return false; // No calling yourself!
             ctrl.isOnline(num, function (isOn) {
                 if (isOn) ctrl.dial(num);
-                else alert("User if Offline");
+                else alert("User is Offline");
             });
             return false;
         }
